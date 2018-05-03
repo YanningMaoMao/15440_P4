@@ -1,0 +1,20 @@
+# This script performs sequential commits.
+  
+setDelay * * 0 # Don't delay to messages by default.
+start Server a b c d
+
+wait 1000 # Wait for nodes to come up
+
+commit composites/1.jpg a:1.jpg b:3.jpg c:6.jpg
+wait 100 # Do not wait until commit to finish
+
+kill Server
+
+wait 350
+
+start Server
+
+wait 500
+
+commit composites/2.jpg a:1.jpg b:4.jpg d:carnegie.jpg
+wait 1000 # Wait 1000 ms for the commit to finish.

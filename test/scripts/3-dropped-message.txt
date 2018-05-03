@@ -1,0 +1,12 @@
+# This script performs a commit and drops a message.
+
+setDelay * * 100 # Small message delay by default.
+start Server a b c d
+setDelay a * -1 # All messages from node 'a' are dropped.
+
+wait 1000 # Wait for Nodes to come up
+
+commit composites/1.jpg a:1.jpg a:2.jpg b:3.jpg b:4.jpg
+commit composites/2.jpg c:5.jpg d:7.jpg d:carnegie.jpg
+wait 10000 # Wait 10000 ms
+
